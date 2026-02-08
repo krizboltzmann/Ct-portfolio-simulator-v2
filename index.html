@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CT Research Portfolio Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>CT Research Portfolio Simulator</h1>
+                    <p class="subtitle">Research-driven capital allocation training</p>
+                </div>
+                <div class="portfolio-display">
+                    <div class="portfolio-stat">
+                        <span class="label">Portfolio</span>
+                        <span id="portfolioValue" class="value">$10,000</span>
+                    </div>
+                    <div class="portfolio-stat">
+                        <span class="label">P&L</span>
+                        <span id="portfolioPnL" class="value pnl">$0 (0%)</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main id="gameArea">
+            <!-- Start Screen -->
+            <div id="startScreen" class="screen active">
+                <div class="welcome-box">
+                    <h2>Portfolio Simulation</h2>
+                    <p>You start with $10,000 virtual capital.</p>
+                    <p>Each round: analyze a token, identify the key risk, then decide how much to allocate.</p>
+                    <p>Your portfolio will grow or shrink based on your research and sizing decisions.</p>
+                    <button id="startBtn" class="primary-btn">Start Simulation</button>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="gameScreen" class="screen">
+                <!-- Token Card -->
+                <div class="token-card">
+                    <div class="token-header">
+                        <div class="token-name">
+                            <h2 id="tokenName">—</h2>
+                            <span id="tokenTicker" class="ticker">—</span>
+                        </div>
+                    </div>
+                    
+                    <div class="token-stats">
+                        <div class="stat">
+                            <span class="stat-label">Market Cap</span>
+                            <span id="marketCap" class="stat-value">—</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">FDV</span>
+                            <span id="fdv" class="stat-value">—</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Liquidity</span>
+                            <span id="liquidity" class="stat-value">—</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Unlocks</span>
+                            <span id="unlocks" class="stat-value">—</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Top Holder</span>
+                            <span id="concentration" class="stat-value">—</span>
+                        </div>
+                    </div>
+
+                    <div class="narrative-box">
+                        <p id="narrative">—</p>
+                    </div>
+                </div>
+
+                <!-- Research Question Section -->
+                <div id="researchSection" class="research-section">
+                    <h3>What matters most in this situation?</h3>
+                    <div id="optionsContainer" class="options-container">
+                        <!-- Options populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Allocation Section -->
+                <div id="allocationSection" class="allocation-section hidden">
+                    <h3>How much do you want to allocate?</h3>
+                    <p class="allocation-info">Available: <span id="availableCapital">$0</span></p>
+                    <div class="allocation-buttons">
+                        <button class="allocation-btn" data-percent="10">10%</button>
+                        <button class="allocation-btn" data-percent="25">25%</button>
+                        <button class="allocation-btn" data-percent="50">50%</button>
+                        <button class="allocation-btn" data-percent="100">100%</button>
+                        <button class="allocation-btn skip-btn" data-percent="0">Skip</button>
+                    </div>
+                    <div id="allocationPreview" class="allocation-preview">
+                        Allocating: <span id="allocationAmount">$0</span>
+                    </div>
+                </div>
+
+                <!-- Outcome Section -->
+                <div id="outcomeSection" class="outcome-section hidden">
+                    <div class="outcome-box">
+                        <div class="outcome-header">
+                            <span id="outcomeLabel" class="outcome-label">—</span>
+                            <span id="outcomeChange" class="outcome-change">—</span>
+                        </div>
+                        <p id="outcomeText" class="outcome-text">—</p>
+                        <div class="outcome-impact">
+                            <span class="impact-label">Position P&L:</span>
+                            <span id="positionPnL" class="impact-value">—</span>
+                        </div>
+                        <button id="nextRoundBtn" class="primary-btn">Next Round</button>
+                    </div>
+                </div>
+
+                <!-- Progress -->
+                <div class="progress-info">
+                    <span id="roundCounter">Round 1</span>
+                    <button id="resetBtn" class="text-btn">Reset Portfolio</button>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="screen">
+                <div class="gameover-box">
+                    <h2 id="gameOverTitle">—</h2>
+                    <div class="final-stats">
+                        <div class="final-stat">
+                            <span class="label">Final Portfolio</span>
+                            <span id="finalPortfolio" class="value">—</span>
+                        </div>
+                        <div class="final-stat">
+                            <span class="label">Total P&L</span>
+                            <span id="finalPnL" class="value">—</span>
+                        </div>
+                        <div class="final-stat">
+                            <span class="label">Rounds Played</span>
+                            <span id="finalRounds" class="value">—</span>
+                        </div>
+                    </div>
+                    <button id="playAgainBtn" class="primary-btn">Play Again</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p class="watermark">Created by Kriz Boltzmann</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
